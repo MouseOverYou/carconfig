@@ -11,77 +11,47 @@ function ChangeMaterialProperties() {
 
     var yellow = new BABYLON.Color3.FromHexString("#E19A00");
 
+    let sceneMats = scene.materials;
+    for (let mat of sceneMats) {
+        if (mat.name == "hdrSkyBox") {
+            continue;
+        }
 
-    scene.materials.forEach(mat => {
         mat.reflectionTexture = hdrTexture;
-        if (mat.name.startsWith("sit")) {
-            mat.metallic = 0;
-            mat.roughness = 0.2;
-            mat.bumpTexture = leatherNRM
-            mat.bumpTexture.level = 0.13
-            mat.bumpTexture.uScale = 0.15
-            mat.bumpTexture.vScale = 0.15
-        }
-        else if (mat.name == "whiteWood") {
-            mat.metallic = 0;
-            mat.roughness = 0.1;
-        }
-        else if (mat.name == "Glass") {
-            mat.metallic = 0;
-            mat.roughness = 0;
-            mat.indexOfRefraction = 0.52;
-            mat.alpha = 0.5;
-            mat.directIntensity = 0.0;
-            mat.environmentIntensity = 0.7;
-            mat.cameraExposure = 0.66;
-            mat.cameraContrast = 1.66;
-            mat.microSurface = 1;
-            mat.reflectivityColor = new BABYLON.Color3(0.2, 0.2, 0.2);
-            mat.albedoColor = new BABYLON.Color3(0.95, 0.95, 0.95);
-        }
-        else if (mat.name == "blackScreen") {
-            mat.metallic = 1
-            mat.roughness = 0;
-        }
-        else if (mat.name == "Leuchte") {
-            mat.emissiveColor = new BABYLON.Color3(117 / 255, 98 / 255, 95 / 255)
-            LeuchteMat = mat
-        }
-        else if (mat.name == "glissBottle") {
-            mat.metallic = 0.65
-            mat.roughness = 0.1
-        }
-
-        else if (mat.name == "deckelMat") {
-            mat.metallic = 0.65
-            mat.roughness = 0.1
-        }
-        else if (mat.name == "glissMetal") {
-            mat.metallic = 1
-            mat.roughness = 0
-        }
-        else if (mat.name == "newSticker") {
-            //mat.albedoColor = new BABYLON.Color3.Black()
-        }
-        else if (mat.name == "bild") {
-            mat.emissiveTexture = mat.albedoTexture
-            mat.emissiveColor = new BABYLON.Color3.FromHexString("#313131")
-        }
-        else if (mat.name == "Car03_Body_Mat01") {
+        if (mat.name == "Car03_Body_Mat01") {
+            //mat.reflectionTexture = hdrTexture;
             coatMat = mat
             mat.albedoColor = yellow;
-            mat.roughness = 0.5
+            mat.roughness = 0.3
+            mat.albedoTexture = mat.ambientTexture
 
             mat.clearCoat.isEnabled = true;
-            //mat.clearCoat.intensity = 0.5; // 0-1 defaults to 1
-            //mat.clearCoat.roughness = 0.5; // 0-1 defaults to 0
+            mat.clearCoat.intensity = 1; // 0-1 defaults to 1
+            mat.clearCoat.roughness = 0.1; // 0-1 defaults to 0
             //material.clearCoat.texture = texture; // R is storing intensity and G roughness
 
             //mat.clearCoat.isTintEnabled = true;
             //mat.clearCoat.tintColor = Color3.Teal();
             //mat.clearCoat.bumpTexture = texture; // dedicated bump texture for the coat
         }
-    })
+        else if(mat.name =="Car03_Glass_Mat"){
+            mat.roughness = 0;
+            mat.metallic = 1
+        }
+        else if(mat.name == "Car03_Wheel_Mat01"){
+            mat.metallic = 1
+            mat.roughness = 0.2
+
+        }
+        else if(mat.name == "Car03_Interior_Mat01"){
+            mat.alpha = 1
+            mat.roughness = 0.5
+            mat.bumpTexture.level = 0.3
+        }
+
+        console.log(mat.name);
+
+    }
 
 
 }

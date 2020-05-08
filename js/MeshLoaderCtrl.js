@@ -9,18 +9,20 @@ function LoadAssets(scene, assetsManager) {
     var envTask = assetsManager.addCubeTextureTask("envTask", "./assets/environment.dds");
 
     envTask.onSuccess = function (task) {
-        //alert('HDR LOADED');
-        hdrTexture = new BABYLON.CubeTexture.CreateFromPrefilteredData("./assets/environment.dds", scene);
+        hdrTexture = new BABYLON.CubeTexture.CreateFromPrefilteredData(task.texture.name, scene);
+        //hdrTexture = task.texture
         hdrTexture.rotationY = 140 * (Math.PI / 180);
         hdrTexture.level = 1
 
+        var hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
+        hdrSkyboxMaterial.backFaceCulling = false;
+        hdrSkyboxMaterial.reflectionTexture = hdrTexture.clone();
+        hdrSkyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+        hdrSkyboxMaterial.microSurface = 1.0;
+        hdrSkyboxMaterial.disableLighting = true;
         // Create Skybox
         var hdrSkybox = BABYLON.Mesh.CreateBox("hdrSkyBox", 1000.0, scene);
         hdrSkybox.visibility = 0
-        var hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
-        hdrSkyboxMaterial.backFaceCulling = false;
-        hdrSkyboxMaterial.microSurface = 1.0;
-        hdrSkyboxMaterial.disableLighting = true;
         hdrSkybox.material = hdrSkyboxMaterial;
         hdrSkybox.infiniteDistance = false;
 
