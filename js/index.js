@@ -27,9 +27,6 @@ var createScene = function () {
     camera.wheelPrecision = 10
     camera.attachControl(canvas, true, true, false);
 
-    camMitte = BABYLON.MeshBuilder.CreateSphere("camMitte", { diameter: 3 }, scene);
-    camMitte.position.z = -10
-    camMitte.visibility = 0
 
     lightLinks = new BABYLON.DirectionalLight("lightLinks", new BABYLON.Vector3(-60, -41, -90), scene);
     lightLinks.position = new BABYLON.Vector3(1, 1, 0);
@@ -53,7 +50,7 @@ var createScene = function () {
     sphereR = BABYLON.MeshBuilder.CreateSphere("sphereR", { diameter: 3 }, scene);
     sphereR.parent = spotLightR
     sphereR.visibility = 0.2
-    
+
     scene.clearColor = new BABYLON.Color3(0,0,0);
     scene.ambientColor = new BABYLON.Color3(0,0,0);
 
