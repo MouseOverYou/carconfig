@@ -57,6 +57,7 @@ function LoadAssets(scene, assetsManager) {
     var pbr
     assetsManager.onFinish = function (task) {
         ChangeMaterialProperties()
+        CreateColorPicker();
 
     }
     //Asset Manager check

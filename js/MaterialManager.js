@@ -1,5 +1,6 @@
 let woodMat, LeuchteMat
 let videoMats = []
+let coatMat;
 function ChangeMaterialProperties() {
 
     var redBay = new BABYLON.Color3.FromHexString("#ea1e1e");
@@ -67,6 +68,7 @@ function ChangeMaterialProperties() {
             mat.emissiveColor = new BABYLON.Color3.FromHexString("#313131")
         }
         else if (mat.name == "Car03_Body_Mat01") {
+            coatMat = mat
             mat.albedoColor = yellow;
             mat.roughness = 0.5
 
