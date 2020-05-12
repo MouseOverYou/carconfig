@@ -51,3 +51,22 @@ function AddShadows() {
     }
 
 }
+
+var changeEnv = async function (task, hdr) {
+    hdrSkyboxMaterial.dispose(false,true)
+    await CreateEnvMaterial(task, hdr);
+    await UpdateEnvReflections(hdr);
+}
+
+function CreateEnvMaterial(task, hdr){
+
+    hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
+    hdrSkyboxMaterial.backFaceCulling = false;
+    hdrSkyboxMaterial.reflectionTexture = hdr.clone();
+    hdrSkyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+    hdrSkyboxMaterial.microSurface = 1.0;
+    hdrSkyboxMaterial.disableLighting = false;
+    // Create Skybox
+    hdrSkybox.material = hdrSkyboxMaterial;
+
+}

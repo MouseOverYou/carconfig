@@ -1,34 +1,47 @@
 var Car_P, World_P
-var hdrTexture
+var hdrTexture, hdrTextureCity, hdrSkyboxMaterial, hdrSkybox, CanyonEnvTask, CityEnvTask
 var MesseCollidersLoaderTask, BottleLoaderTask
 
 function LoadAssets(scene, assetsManager) {
 
 
-    //ENV TASK
-    var envTask = assetsManager.addCubeTextureTask("envTask", "./assets/Runyon_Canyon_A_2k_cube_specular.dds");
-    //var envTask = assetsManager.addCubeTextureTask("envTask", "./assets/environment.dds");
+    //CanyonEnvTask
+    CanyonEnvTask = assetsManager.addCubeTextureTask("CanyonEnvTask", "./assets/Runyon_Canyon_A_2k_cube_specular.dds");
 
-    envTask.onSuccess = function (task) {
+    CanyonEnvTask.onSuccess = function (task) {
         hdrTexture = new BABYLON.CubeTexture.CreateFromPrefilteredData(task.texture.name, scene);
         //hdrTexture = task.texture
         hdrTexture.rotationY = 180 * (Math.PI / 180);
         hdrTexture.level = 1
 
-        var hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
+        hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
         hdrSkyboxMaterial.backFaceCulling = false;
         hdrSkyboxMaterial.reflectionTexture = hdrTexture.clone();
         hdrSkyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
         hdrSkyboxMaterial.microSurface = 1.0;
         hdrSkyboxMaterial.disableLighting = false;
         // Create Skybox
-        var hdrSkybox = BABYLON.Mesh.CreateBox("hdrSkyBox", 1000.0, scene);
+        hdrSkybox = BABYLON.Mesh.CreateBox("hdrSkyBox", 1000.0, scene);
         hdrSkybox.visibility = 1
         hdrSkybox.material = hdrSkyboxMaterial;
         hdrSkybox.infiniteDistance = false;
 
     }
-    envTask.onError = function (task, message, exception) {
+    CanyonEnvTask.onError = function (task, message, exception) {
+        console.log(message, exception);
+    }
+
+    //CanyonEnvTask
+    CityEnvTask = assetsManager.addCubeTextureTask("CityEnvTask", "./assets/environment.dds");
+
+    CityEnvTask.onSuccess = function (task) {
+        hdrTextureCity = new BABYLON.CubeTexture.CreateFromPrefilteredData(task.texture.name, scene);
+        //hdrTexture = task.texture
+        hdrTextureCity.rotationY = 140 * (Math.PI / 180);
+        hdrTextureCity.level = 1
+
+    }
+    CityEnvTask.onError = function (task, message, exception) {
         console.log(message, exception);
     }
 

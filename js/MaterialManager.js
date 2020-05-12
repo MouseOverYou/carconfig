@@ -81,6 +81,17 @@ function ChangeMaterialProperties() {
 
 }
 
+function UpdateEnvReflections(hdr){
+    let sceneMats = scene.materials;
+    for (let mat of sceneMats) {
+        if (mat.name == "hdrSkyBox" ) {
+            continue;
+        }
+
+        mat.reflectionTexture = hdr;
+    }
+
+}
 function scaleText(text, uValue, vValue, strength){
     text.uScale = uValue
     text.vScale = vValue

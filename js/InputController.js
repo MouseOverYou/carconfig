@@ -1,6 +1,6 @@
 
 let LightSwitch = false
-let TVSwitch = false
+let EnvSwitch = false
 let showCommands = false
 $(document).keyup(function (e) {
 
@@ -27,13 +27,13 @@ $(document).keyup(function (e) {
 
   if (e.keyCode === 80) {
     console.log("p Keyboard")
-    TVSwitch =! TVSwitch
-    if(TVSwitch){
-      TurnTVOff()
+    EnvSwitch =! EnvSwitch
+    if(EnvSwitch){
+      changeEnv(CityEnvTask, hdrTextureCity)
       
     }
     else{
-      TurnTVOn()
+      changeEnv(CanyonEnvTask, hdrTexture)
     }
 
   }
