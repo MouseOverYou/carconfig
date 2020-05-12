@@ -4,37 +4,22 @@ let EnvSwitch = false
 let showCommands = false
 $(document).keyup(function (e) {
 
-  if (e.keyCode === 73) {
-    console.log("i Keyboard")
-    LightSwitch =! LightSwitch
-    console.log(LightSwitch)
-    if (LightSwitch) {
-      TurnLightsOff()
-    }
-    else {
-      UpdateAnimRate = true
-    }
-  }
 
-  if (e.keyCode === 85) {
-    StartAnim.restart()
-  }
-
-  if (e.keyCode === 78) {
-    MuteVideoStreaming()
-
-  }
-
-  if (e.keyCode === 80) {
+  if (e.keyCode === 49 || e.keyCode === 97) {
     console.log("p Keyboard")
-    EnvSwitch =! EnvSwitch
-    if(EnvSwitch){
-      changeEnv(CityEnvTask, hdrTextureCity)
-      
-    }
-    else{
-      changeEnv(CanyonEnvTask, hdrTexture)
-    }
+    changeEnv(hdrTexture, 1)
+
+  }
+
+  else if (e.keyCode === 50 || e.keyCode === 98) {
+    console.log("p Keyboard")
+    changeEnv(hdrTextureCity, 1)
+
+  }
+
+  else if (e.keyCode === 51 || e.keyCode === 99) {
+    console.log("p Keyboard")
+    changeEnv(hdrTextureStudio, 0)
 
   }
 

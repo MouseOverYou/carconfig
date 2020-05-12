@@ -1,5 +1,5 @@
-var Car_P, World_P
-var hdrTexture, hdrTextureCity, hdrSkyboxMaterial, hdrSkybox, CanyonEnvTask, CityEnvTask
+var Car_P, Roof_P
+var hdrTexture, hdrTextureCity, hdrTextureStudio, hdrSkyboxMaterial, hdrSkybox, CanyonEnvTask, CityEnvTask, StudioEnvTask
 var MesseCollidersLoaderTask, BottleLoaderTask
 
 function LoadAssets(scene, assetsManager) {
@@ -45,6 +45,20 @@ function LoadAssets(scene, assetsManager) {
         console.log(message, exception);
     }
 
+    //StudioEnvTask
+    StudioEnvTask = assetsManager.addCubeTextureTask("StudioEnvTask", "./assets/parking.dds");
+
+    StudioEnvTask.onSuccess = function (task) {
+        hdrTextureStudio = new BABYLON.CubeTexture.CreateFromPrefilteredData(task.texture.name, scene);
+        //hdrTexture = task.texture
+        hdrTextureStudio.rotationY = 180 * (Math.PI / 180);
+        hdrTextureStudio.level = 0.5
+
+    }
+    CityEnvTask.onError = function (task, message, exception) {
+        console.log(message, exception);
+    }
+
 
     Car_P = new BABYLON.TransformNode("Car_P");
     MesseLoaderTask = assetsManager.addMeshTask("", "", "./assets/car_web_LOD1.glb")
@@ -65,7 +79,7 @@ function LoadAssets(scene, assetsManager) {
         console.log(message, exception);
     }
 
-    World_P = new BABYLON.TransformNode("World_P");
+    Roof_P = new BABYLON.TransformNode("Roof_P");
     WorldLoaderTask = assetsManager.addMeshTask("", "", "./assets/car_web_env.glb")
 
     WorldLoaderTask.onSuccess = function (task) {
@@ -73,10 +87,10 @@ function LoadAssets(scene, assetsManager) {
         task.loadedMeshes[0].position.x = 0
         task.loadedMeshes[0].position.y = 0
         task.loadedMeshes[0].position.z = 0
-        task.loadedMeshes[0].parent = World_P
-        World_P.position.x = 0
-        World_P.position.y = 0
-        World_P.scaling = new BABYLON.Vector3(0.01, 0.01, 0.01)
+        task.loadedMeshes[0].parent = Roof_P
+        Roof_P.position.x = 0
+        Roof_P.position.y = 0
+        Roof_P.scaling = new BABYLON.Vector3(0.01, 0.01, 0.01)
 
     }
 

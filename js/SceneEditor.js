@@ -52,13 +52,14 @@ function AddShadows() {
 
 }
 
-var changeEnv = async function (task, hdr) {
+var changeEnv = async function (hdr, vis) {
     hdrSkyboxMaterial.dispose(false,true)
-    await CreateEnvMaterial(task, hdr);
+    await CreateEnvMaterial(hdr, vis);
     await UpdateEnvReflections(hdr);
+    await ChangeEnvMesh(vis);
 }
 
-function CreateEnvMaterial(task, hdr){
+function CreateEnvMaterial(hdr, vis){
 
     hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
     hdrSkyboxMaterial.backFaceCulling = false;
@@ -68,5 +69,20 @@ function CreateEnvMaterial(task, hdr){
     hdrSkyboxMaterial.disableLighting = false;
     // Create Skybox
     hdrSkybox.material = hdrSkyboxMaterial;
+    hdrSkybox.visibility = vis
+}
+
+function ChangeEnvMesh(vis){
+
+    if(vis == 0){
+        console.log("setting off")
+        console.log(Roof_P)
+        Roof_P.setEnabled(false)
+    }
+    else{
+        console.log("setting on")
+        Roof_P.setEnabled(true)
+    }
+
 
 }
