@@ -13,7 +13,7 @@ function ChangeMaterialProperties() {
 
     let sceneMats = scene.materials;
     for (let mat of sceneMats) {
-        if (mat.name == "hdrSkyBox") {
+        if (mat.name == "hdrSkyBox" ) {
             continue;
         }
 
@@ -49,11 +49,45 @@ function ChangeMaterialProperties() {
             mat.bumpTexture.level = 0.3
         }
 
-        console.log(mat.name);
-
+        else if(mat.name == "env_floor"){
+            scaleText(mat.albedoTexture, 20, 20)
+            scaleText(mat.bumpTexture, 20, 20, 0.4)
+            scaleText(mat.metallicTexture, 20, 20)
+            mat.roughness = 0.3
+            mat.metallic = 0.3
+        }
+        else if(mat.name == "env_walls"){
+            scaleText(mat.albedoTexture, 100, 1)
+            scaleText(mat.bumpTexture, 100, 1, 1)
+            mat.metallic = 0.1
+            mat.roughness = 0.5
+            mat.metallicF0Factor = 0
+            var wallsAO = new BABYLON.Texture("./assets/Walls2Ambient_Occlusion.png", scene, true, false)
+            mat.ambientTexture = wallsAO
+        }
+        else if(mat.name == "coll Mat"){
+            mat.alpha = 0
+            mat.transparencyMode = 2
+        }
+        else if(mat.name =="FloorAO"){
+            var textAlpha = new BABYLON.Texture("./assets/FLoor Opacity.png", scene, true, false);
+            textAlpha.getAlphaFromRGB = true
+            mat.opacityTexture = textAlpha
+            mat.unlit = true
+ 
+        }
     }
 
 
+}
+
+function scaleText(text, uValue, vValue, strength){
+    text.uScale = uValue
+    text.vScale = vValue
+    if(strength == null){
+        return
+    }
+    text.level = strength
 }
 
 var colMat
