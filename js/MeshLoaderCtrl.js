@@ -46,7 +46,7 @@ function LoadAssets(scene, assetsManager) {
     }
 
     //StudioEnvTask
-    StudioEnvTask = assetsManager.addCubeTextureTask("StudioEnvTask", "./assets/parking.dds");
+    StudioEnvTask = assetsManager.addCubeTextureTask("StudioEnvTask", "./assets/Studio_Softbox_2Umbrellas_cube_specular.dds");
 
     StudioEnvTask.onSuccess = function (task) {
         hdrTextureStudio = new BABYLON.CubeTexture.CreateFromPrefilteredData(task.texture.name, scene);
