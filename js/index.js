@@ -42,8 +42,6 @@ var createScene = function () {
     glass.albedoColor = new BABYLON.Color3(0.85, 0.85, 0.85);
     sphereGlass.material = glass;
 
-    CreateLighting();
-
     scene.clearColor = new BABYLON.Color3(1,1,1);
     scene.ambientColor = new BABYLON.Color3(1,1,1);
 

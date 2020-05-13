@@ -109,7 +109,8 @@ function LoadAssets(scene, assetsManager) {
         ChangeMaterialProperties()
         CreateColorPicker();
         AddGlow() 
-        //EditMeshes();
+        EditMeshes();
+        CreateLighting()
         //AddShadows();
         //PostEffects(scene)
         //AddSSAO()

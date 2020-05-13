@@ -1,4 +1,4 @@
-var lightLinks, lightRechts, spotLightL, spotLightR
+var lightLinks, lightRechts, spotLightL, spotLightR, godrays
 function CreateLighting(){
     lightLinks = new BABYLON.DirectionalLight("lightLinks", new BABYLON.Vector3(-60, -41, -90), scene);
     lightLinks.position = new BABYLON.Vector3(1, 1, 0);
@@ -14,14 +14,18 @@ function CreateLighting(){
 
     spotLightR = new BABYLON.SpotLight("spotLightR", new BABYLON.Vector3(-0.7, 0.75, 2.2), new BABYLON.Vector3(0, 0, 1), 95 * (Math.PI / 180), 2, scene);
     spotLightR.intensity = 250
-    
+
     spotLightL.diffuse = new BABYLON.Color3(0, 0, 0)
     spotLightR.diffuse = new BABYLON.Color3(0, 0, 0)
+    // Create the "God Rays" effect (volumetric light scattering)
+    godrays = new BABYLON.VolumetricLightScatteringPostProcess('godrays', 1.0, camera, LightMesh, 100, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
+    godrays._volumetricLightScatteringRTT.renderParticles = true;
+    godrays.invert = false;
+    //godrays.weight = 1
+    godrays.exposure =0
 
 /*
-    // Create the "God Rays" effect (volumetric light scattering)
-    var godrays = new BABYLON.VolumetricLightScatteringPostProcess('godrays', 1.0, camera, null, 100, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
-    godrays._volumetricLightScatteringRTT.renderParticles = true;
+
 
 	// By default it uses a billboard to render the sun, just apply the desired texture
 	// position and scale
@@ -34,11 +38,15 @@ function CreateLighting(){
 
 }
 
+let LightMesh
 function EditMeshes(){
     scene.meshes.forEach(mesh => {
         if(mesh.name == "Car03_CollisionMesh"){
-            mesh.isVisible = false
+            //mesh.isVisible = false
             //console.log(mesh)
+        }
+        if(mesh.name == "Car03_Lights_HeadLight"){
+            LightMesh = mesh
         }
     });
 }
