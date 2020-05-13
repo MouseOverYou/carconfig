@@ -23,6 +23,7 @@ function ChangeMaterialProperties() {
             coatMat = mat
             mat.albedoColor = yellow;
             mat.roughness = 0.3
+            mat.metallic = 0.75
             mat.albedoTexture = mat.ambientTexture
 
             mat.clearCoat.isEnabled = true;
@@ -33,6 +34,10 @@ function ChangeMaterialProperties() {
             //mat.clearCoat.isTintEnabled = true;
             //mat.clearCoat.tintColor = Color3.Teal();
             //mat.clearCoat.bumpTexture = texture; // dedicated bump texture for the coat
+        }
+        else if(mat.name == "Car03_LightsEmissive"){
+            LeuchteMat = mat
+            //mat.emissiveColor = new BABYLON.Color3.FromHexString("#FFFFFF")
         }
         else if(mat.name =="Car03_Glass_Mat"){
             mat.roughness = 0;
@@ -57,7 +62,7 @@ function ChangeMaterialProperties() {
             mat.metallic = 0.3
         }
         else if(mat.name == "env_walls"){
-            scaleText(mat.albedoTexture, 100, 1)
+            scaleText(mat.albedoTexture, 100, 1, 1)
             scaleText(mat.bumpTexture, 100, 1, 1)
             mat.metallic = 0.1
             mat.roughness = 0.5

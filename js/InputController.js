@@ -1,5 +1,5 @@
 
-let LightSwitch = false
+let LightSwitch = true
 let EnvSwitch = false
 let showCommands = false
 $(document).keyup(function (e) {
@@ -21,6 +21,18 @@ $(document).keyup(function (e) {
     console.log("p Keyboard")
     changeEnv(hdrTextureStudio, 0)
 
+  }
+
+  if (e.keyCode === 73) {
+    console.log("i Keyboard")
+    LightSwitch =! LightSwitch
+    console.log(LightSwitch)
+    if (LightSwitch) {
+      TurnLightsOff()
+    }
+    else {
+      UpdateAnimRate = true
+    }
   }
 
   if(e.keyCode === 74){

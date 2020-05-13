@@ -17,6 +17,7 @@ function LoadAssets(scene, assetsManager) {
         hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
         hdrSkyboxMaterial.backFaceCulling = false;
         hdrSkyboxMaterial.reflectionTexture = hdrTexture.clone();
+        hdrSkyboxMaterial.reflectionTexture.level = 0.1
         hdrSkyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
         hdrSkyboxMaterial.microSurface = 1.0;
         hdrSkyboxMaterial.disableLighting = false;
@@ -37,7 +38,7 @@ function LoadAssets(scene, assetsManager) {
     CityEnvTask.onSuccess = function (task) {
         hdrTextureCity = new BABYLON.CubeTexture.CreateFromPrefilteredData(task.texture.name, scene);
         //hdrTexture = task.texture
-        hdrTextureCity.rotationY = 140 * (Math.PI / 180);
+        hdrTextureCity.rotationY = 180 * (Math.PI / 180);
         hdrTextureCity.level = 1
 
     }
@@ -46,13 +47,13 @@ function LoadAssets(scene, assetsManager) {
     }
 
     //StudioEnvTask
-    StudioEnvTask = assetsManager.addCubeTextureTask("StudioEnvTask", "./assets/Studio_Softbox_2Umbrellas_cube_specular.dds");
+    StudioEnvTask = assetsManager.addCubeTextureTask("StudioEnvTask", "./assets/DivaStudioSpecularHDR2.dds");
 
     StudioEnvTask.onSuccess = function (task) {
         hdrTextureStudio = new BABYLON.CubeTexture.CreateFromPrefilteredData(task.texture.name, scene);
         //hdrTexture = task.texture
-        hdrTextureStudio.rotationY = 180 * (Math.PI / 180);
-        hdrTextureStudio.level = 0.5
+        hdrTextureStudio.rotationY = 300 * (Math.PI / 180);
+        hdrTextureStudio.level = 0.4
 
     }
     CityEnvTask.onError = function (task, message, exception) {
@@ -107,6 +108,7 @@ function LoadAssets(scene, assetsManager) {
     assetsManager.onFinish = function (task) {
         ChangeMaterialProperties()
         CreateColorPicker();
+        AddGlow() 
         //EditMeshes();
         //AddShadows();
         //PostEffects(scene)

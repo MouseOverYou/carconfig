@@ -72,7 +72,7 @@ engine.runRenderLoop(function () {
     if(UpdateAnimRate){
         AnimRate += 0.01
         TurnLightsOn(AnimRate)
-        //console.log(AnimRate)
+        console.log(AnimRate)
     }
 });
 

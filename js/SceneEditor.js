@@ -7,13 +7,29 @@ function CreateLighting(){
 
     lightRechts = new BABYLON.DirectionalLight("lightRechts", new BABYLON.Vector3(120, -41, -90), scene);
     lightRechts.position = new BABYLON.Vector3(-1, 1, 0);
-    lightRechts.intensity = 0.5
-/*
-    spotLightL = new BABYLON.SpotLight("spotLightL", new BABYLON.Vector3(35, 30, -48), new BABYLON.Vector3(0, -1, 0.3), 95 * (Math.PI / 180), 2, scene);
-    spotLightL.intensity = 8000
+    lightRechts.intensity = 0.0
 
-    spotLightR = new BABYLON.SpotLight("spotLightR", new BABYLON.Vector3(-35, 30, -48), new BABYLON.Vector3(0, -1, 0.3), 95 * (Math.PI / 180), 2, scene);
-    spotLightR.intensity = 8000
+    spotLightL = new BABYLON.SpotLight("spotLightL", new BABYLON.Vector3(0.7, 0.75, 2.2), new BABYLON.Vector3(0, 0, 1), 115 * (Math.PI / 180), 2, scene);
+    spotLightL.intensity = 250
+
+    spotLightR = new BABYLON.SpotLight("spotLightR", new BABYLON.Vector3(-0.7, 0.75, 2.2), new BABYLON.Vector3(0, 0, 1), 95 * (Math.PI / 180), 2, scene);
+    spotLightR.intensity = 250
+    
+    spotLightL.diffuse = new BABYLON.Color3(0, 0, 0)
+    spotLightR.diffuse = new BABYLON.Color3(0, 0, 0)
+
+/*
+    // Create the "God Rays" effect (volumetric light scattering)
+    var godrays = new BABYLON.VolumetricLightScatteringPostProcess('godrays', 1.0, camera, null, 100, BABYLON.Texture.BILINEAR_SAMPLINGMODE, engine, false);
+    godrays._volumetricLightScatteringRTT.renderParticles = true;
+
+	// By default it uses a billboard to render the sun, just apply the desired texture
+	// position and scale
+	godrays.mesh.material.diffuseTexture = new BABYLON.Texture('assets/sun.png', scene, true, false, BABYLON.Texture.BILINEAR_SAMPLINGMODE);
+	godrays.mesh.material.diffuseTexture.hasAlpha = true;
+	godrays.mesh.position = new BABYLON.Vector3(0.7, 0.75, 2.2);
+	godrays.mesh.scaling = new BABYLON.Vector3(1, 1, 1);
+
 */
 
 }
@@ -49,6 +65,18 @@ function AddShadows() {
         }
 
     }
+
+}
+
+function AddGlow() {
+    // Add lights to the scene
+    var gl = new BABYLON.GlowLayer("glow", scene) //glow layer 
+    gl.intensity = 2;
+    scene.meshes.forEach(elem => {
+        if (elem.name.startsWith("Screen_") || elem.name == "Video_Screens") {
+            //gl.addExcludedMesh(elem)
+        }
+    });
 
 }
 
