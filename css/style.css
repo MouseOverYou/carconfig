@@ -9,8 +9,8 @@ body {
 
 .logo{
   position: absolute;
-  top: 92vh;
-  left: 5vh;
+  top: 92%;
+  right: 5vh;
   z-index: 998;
   max-width: 200px;
   height: auto;
@@ -39,3 +39,134 @@ body {
     touch-action: none;
     /*  */
 }
+
+/*UI STUFF*/
+/*Colour Picker*/
+#UIHolder {
+	position: absolute;
+}
+#colourPicker {
+  margin-left:auto;
+  margin-right:auto;
+	width: 100px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #2C3E50;
+  background-color:#2C3E50;
+}
+#colourPicker div {
+	display: block;
+	margin: 10px;
+	width: 20px;
+	height: 80px;
+	border-style: solid;
+  	cursor:pointer;
+	-webkit-transition: border-width .5s ease;
+	-moz-transition: border-width .5s ease;
+	-ms-transition: border-width .5s ease;
+	-o-transition: border-width .5s ease;
+	transition: border-width .5s ease;
+}
+.colourOption{
+  	border-width: 0 60px 0 0;
+}
+#colourOne {
+	background-color: #3498DB;
+	border-color: #34495E;
+}
+#colourTwo {
+	background-color: #9B59B6;
+	border-color: #34495E;
+}
+#colourThree {
+	background-color: #2ECC71;
+	border-color: #34495E;
+}
+#colourFour {
+	background-color: #E74C3C;
+	border-color: #34495E;
+}
+#colourFive {
+	background-color: #E67E22;
+	border-color: #34495E;
+}
+#colourSix {
+	background-color: #F1C40F;
+	border-color: #34495E;
+}
+
+.selectedColour {
+	border-width: 0 0 0 60px;
+}
+
+/*Env Picker*/
+#envPicker {
+	margin-left:auto;
+	margin-right:auto;
+	  width: 100px;
+	  border-style: solid;
+	  border-width: 4px;
+	  border-color: #2C3E50;
+	background-color:#2C3E50;
+  }
+  #envPicker div {
+	  display: block;
+		cursor:pointer;
+	  -webkit-transition: .25s ease;
+	  -moz-transition: .25s ease;
+	  -ms-transition: .25s ease;
+	  -o-transition: .25s ease;
+	  transition:  .25s ease;
+  }
+  .envOption{
+		margin: 30px;
+		width: 40px;
+		height: 40px;
+  }
+  #envOne {
+	  background-color: rgb(0, 0, 0);
+  }
+  #envTwo {
+	  background-color: rgb(126, 126, 126);
+  }
+  #envThree {
+	  background-color: rgb(255, 255, 255);
+  }
+
+  .selectedEnv {
+	margin: 10px;
+	width: 80px;
+	height: 80px;
+  }
+
+  /*Light Picker*/
+#lightPicker {
+	margin-left:auto;
+	margin-right:auto;
+	  width: 100px;
+	  border-style: solid;
+	  border-width: 4px;
+	  border-color: #2C3E50;
+	background-color:#2C3E50;
+  }
+  #lightPicker div {
+	  display: block;
+		cursor:pointer;
+		-webkit-transition: .25s ease;
+		-moz-transition: .25s ease;
+		-ms-transition: .25s ease;
+		-o-transition: .25s ease;
+		transition:  .25s ease;
+
+  }
+  .lightOption{
+		margin: 10px;
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background-color: rgb(73, 73, 73);
+  }
+
+  .lightOn {
+	background-color: rgb(251, 255, 0);
+  }
