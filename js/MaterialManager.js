@@ -23,7 +23,7 @@ function ChangeMaterialProperties() {
             coatMat = mat
             mat.albedoColor = yellow;
             mat.roughness = 0.3
-            mat.metallic = 0.75
+            mat.metallic = 1
             mat.albedoTexture = mat.ambientTexture
 
             mat.clearCoat.isEnabled = true;
@@ -78,6 +78,8 @@ function ChangeMaterialProperties() {
             var textAlpha = new BABYLON.Texture("./assets/FLoor Opacity.png", scene, true, false);
             textAlpha.getAlphaFromRGB = true
             mat.opacityTexture = textAlpha
+            mat.albedoTexture = ""
+            mat.albedoColor = blackBay
             mat.unlit = true
  
         }

@@ -48,14 +48,16 @@ body {
 #colourPicker {
   margin-left:auto;
   margin-right:auto;
-	width: 100px;
+  width: 100px;
+  /*change width*/
 	border-style: solid;
 	border-width: 4px;
 	border-color: #2C3E50;
   background-color:#2C3E50;
 }
 #colourPicker div {
-	display: block;
+  display: block;
+  /*change display*/
 	margin: 10px;
 	width: 20px;
 	height: 80px;
@@ -71,27 +73,28 @@ body {
   	border-width: 0 60px 0 0;
 }
 #colourOne {
-	background-color: #3498DB;
-	border-color: #34495E;
+	background-color: rgb(0, 153, 255);
+  border-color: #34495E;
+  
 }
 #colourTwo {
-	background-color: #9B59B6;
+	background-color: rgb(183, 0, 255);
 	border-color: #34495E;
 }
 #colourThree {
-	background-color: #2ECC71;
+	background-color: rgb(0, 255, 106);
 	border-color: #34495E;
 }
 #colourFour {
-	background-color: #E74C3C;
+	background-color: rgb(255, 25, 0);
 	border-color: #34495E;
 }
 #colourFive {
-	background-color: #E67E22;
+	background-color: rgb(255, 119, 0);
 	border-color: #34495E;
 }
 #colourSix {
-	background-color: #F1C40F;
+	background-color: rgb(255, 204, 0);
 	border-color: #34495E;
 }
 
