@@ -166,7 +166,9 @@ body {
 
   }
   .lightOption{
-		margin: 2vh;
+		margin-left: 2vh;
+		margin-bottom: 2vh;
+		margin-top: 0vh; 
 		width: 6vh;
 		height: 6vh;
 		border-radius: 50%;
