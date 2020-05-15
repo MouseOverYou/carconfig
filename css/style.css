@@ -63,7 +63,7 @@ body {
   /*change display*/
 	margin: 1vh;
 	width: 2vh;
-	height: 8vh;
+	height: 6vh;
 	border-style: solid;
   	cursor:pointer;
 	-webkit-transition: border-width .5s ease;
@@ -166,9 +166,9 @@ body {
 
   }
   .lightOption{
-		margin: 1vh;
-		width: 8vh;
-		height: 8vh;
+		margin: 2vh;
+		width: 6vh;
+		height: 6vh;
 		border-radius: 50%;
 		background-color: rgb(73, 73, 73);
   }
