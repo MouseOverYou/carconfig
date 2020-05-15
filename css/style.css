@@ -9,10 +9,10 @@ body {
 
 .logo{
   position: absolute;
-  top: 92%;
+  top: 92vh;
   right: 5vh;
-  z-index: 998;
-  max-width: 200px;
+  z-index: 0;
+  max-width: 20vh;
   height: auto;
   pointer-events: none
 }
@@ -48,19 +48,22 @@ body {
 #colourPicker {
   margin-left:auto;
   margin-right:auto;
-  width: 100px;
+  	    width: 10vh;
+		  /*width: 1000px;*/
   /*change width*/
 	border-style: solid;
-	border-width: 4px;
+	border-width: 0.4vh;
 	border-color: #2C3E50;
   background-color:#2C3E50;
 }
+/*only div elements which parent are #cikiurPicker*/
 #colourPicker div {
   display: block;
+  /*display: inline-block;*/
   /*change display*/
-	margin: 10px;
-	width: 20px;
-	height: 80px;
+	margin: 1vh;
+	width: 2vh;
+	height: 8vh;
 	border-style: solid;
   	cursor:pointer;
 	-webkit-transition: border-width .5s ease;
@@ -70,7 +73,7 @@ body {
 	transition: border-width .5s ease;
 }
 .colourOption{
-  	border-width: 0 60px 0 0;
+  	border-width: 0 6vh 0 0;
 }
 #colourOne {
 	background-color: rgb(0, 153, 255);
@@ -99,16 +102,16 @@ body {
 }
 
 .selectedColour {
-	border-width: 0 0 0 60px;
+	border-width: 0 0 0 6vh;
 }
 
 /*Env Picker*/
 #envPicker {
 	margin-left:auto;
 	margin-right:auto;
-	  width: 100px;
+	width: 10vh;
 	  border-style: solid;
-	  border-width: 4px;
+	  border-width: 0.4vh;
 	  border-color: #2C3E50;
 	background-color:#2C3E50;
   }
@@ -122,9 +125,9 @@ body {
 	  transition:  .25s ease;
   }
   .envOption{
-		margin: 30px;
-		width: 40px;
-		height: 40px;
+		margin: 3vh;
+		width: 4vh;
+		height: 4vh;
   }
   #envOne {
 	  background-color: rgb(0, 0, 0);
@@ -137,18 +140,18 @@ body {
   }
 
   .selectedEnv {
-	margin: 10px;
-	width: 80px;
-	height: 80px;
+	margin: 1vh;
+	width: 8vh;
+	height: 8vh;
   }
 
   /*Light Picker*/
 #lightPicker {
 	margin-left:auto;
 	margin-right:auto;
-	  width: 100px;
+	  width: 10vh;
 	  border-style: solid;
-	  border-width: 4px;
+	  border-width: 0.4vh;
 	  border-color: #2C3E50;
 	background-color:#2C3E50;
   }
@@ -163,13 +166,27 @@ body {
 
   }
   .lightOption{
-		margin: 10px;
-		width: 80px;
-		height: 80px;
+		margin: 1vh;
+		width: 8vh;
+		height: 8vh;
 		border-radius: 50%;
 		background-color: rgb(73, 73, 73);
   }
 
   .lightOn {
 	background-color: rgb(251, 255, 0);
+  }
+
+
+  @media only screen and (min-width: 600px){
+	  /* For tablets: */
+	  /*.logo{background-color: rgb(183, 0, 255);}*/
+	  
+
+  }
+
+  @media only screen and (min-width: 768px){
+
+	/* For desktop: */
+	/*.logo{background-color: rgb(255, 255, 255)}*/
   }
