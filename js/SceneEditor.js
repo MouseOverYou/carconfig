@@ -100,6 +100,7 @@ function CreateEnvMaterial(hdr, vis){
     hdrSkyboxMaterial = new BABYLON.PBRMaterial("hdrSkyBox", scene);
     hdrSkyboxMaterial.backFaceCulling = false;
     hdrSkyboxMaterial.reflectionTexture = hdr.clone();
+    hdrSkyboxMaterial.reflectionTexture.level = 0.1
     hdrSkyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
     hdrSkyboxMaterial.microSurface = 1.0;
     hdrSkyboxMaterial.disableLighting = false;

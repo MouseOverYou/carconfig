@@ -22,6 +22,7 @@ var createScene = function () {
     camera.panningSensibility = 0
     camera.lowerRadiusLimit = 4
     camera.upperRadiusLimit = 8
+    camera.upperBetaLimit = 90 * (Math.PI / 180)
     camera.angularSensibilityX = 3000
     camera.angularSensibilityy = 3000
     camera.wheelPrecision = 10
@@ -62,6 +63,7 @@ scene = createScene();;
 sceneToRender = scene
 
 let UpdateAnimRate = false
+let readyForPosters = false
 let AnimRate = 0
 engine.runRenderLoop(function () {
     if (sceneToRender) {
@@ -71,6 +73,11 @@ engine.runRenderLoop(function () {
         AnimRate += 0.01
         TurnLightsOn(AnimRate)
         console.log(AnimRate)
+    }
+    if(readyForPosters){
+
+        PostersMat.emissiveTexture.vOffset -= 0.00075
+        PostersMat.albedoTexture.vOffset -= 0.00075
     }
 });
 

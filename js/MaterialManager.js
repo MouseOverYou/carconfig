@@ -1,6 +1,6 @@
 let woodMat, LeuchteMat
 let videoMats = []
-let coatMat;
+let coatMat, PostersMat;
 function ChangeMaterialProperties() {
 
     var redBay = new BABYLON.Color3.FromHexString("#ea1e1e");
@@ -57,7 +57,7 @@ function ChangeMaterialProperties() {
         else if(mat.name == "env_floor"){
             scaleText(mat.albedoTexture, 20, 20)
             scaleText(mat.bumpTexture, 20, 20, 0.4)
-            scaleText(mat.metallicTexture, 20, 20)
+            //scaleText(mat.metallicTexture, 20, 20)
             mat.roughness = 0.3
             mat.metallic = 0.3
         }
@@ -81,8 +81,13 @@ function ChangeMaterialProperties() {
             mat.albedoTexture = ""
             mat.albedoColor = blackBay
             mat.unlit = true
- 
         }
+        else if (mat.name == "Poster"){
+            PostersMat = mat
+            mat.metallic = 0
+            mat.roughness = 0
+        }
+
     }
 
 

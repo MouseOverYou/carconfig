@@ -81,7 +81,7 @@ function LoadAssets(scene, assetsManager) {
     }
 
     Roof_P = new BABYLON.TransformNode("Roof_P");
-    WorldLoaderTask = assetsManager.addMeshTask("", "", "./assets/car_web_env.glb")
+    WorldLoaderTask = assetsManager.addMeshTask("", "", "./assets/car_web_env2.glb")
 
     WorldLoaderTask.onSuccess = function (task) {
 
@@ -107,7 +107,7 @@ function LoadAssets(scene, assetsManager) {
     var pbr
     assetsManager.onFinish = function (task) {
         ChangeMaterialProperties()
-        //CreateColorPicker();
+        readyForPosters = true
         AddGlow() 
         EditMeshes();
         CreateLighting()
