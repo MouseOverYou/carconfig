@@ -106,6 +106,7 @@ function LoadAssets(scene, assetsManager) {
 
     var pbr
     assetsManager.onFinish = function (task) {
+        LoadTextures()
         ChangeMaterialProperties()
         readyForPosters = true
         AddGlow() 

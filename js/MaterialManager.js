@@ -1,5 +1,7 @@
-let woodMat, LeuchteMat
+let woodMat, LeuchteMat, wheelMat
 let videoMats = []
+let wheelAlbedo = []
+var wheelMetal = []
 let coatMat, PostersMat;
 function ChangeMaterialProperties() {
 
@@ -44,8 +46,16 @@ function ChangeMaterialProperties() {
             mat.metallic = 1
         }
         else if(mat.name == "Car03_Wheel_Mat01"){
+            wheelMat = mat
+            var metalText010203 = new BABYLON.Texture("./assets/Car03_Wheel_Metallic01-03 SWAPPED.png", scene, true, false)
+            mat.metallicTexture = metalText010203
             mat.metallic = 1
-            mat.roughness = 0.2
+            mat.roughness = 0.15
+            mat.useMetallnessFromMetallicTextureBlue = true
+            mat.useRoughnessFromMetallicTextureAlpha = true
+            //mat.useAmbientOcclusionFromMetallicTextureRed = true
+            //mat.ambientTexture = ""
+            mat.metallicF0Factor = 1
 
         }
         else if(mat.name == "Car03_Interior_Mat01"){
@@ -102,6 +112,26 @@ function UpdateEnvReflections(hdr){
 
         mat.reflectionTexture = hdr;
     }
+
+}
+
+function LoadTextures(){
+    //load albedos
+    var wheelAlbedo01 = new BABYLON.Texture("./assets/Car03_Wheel_Albedo03.png", scene, true, false)
+    wheelAlbedo.push(wheelAlbedo01)
+    var wheelAlbedo02 = new BABYLON.Texture("./assets/Car03_Wheel_Albedo06.png", scene, true, false)
+    wheelAlbedo.push(wheelAlbedo02)
+    var wheelAlbedo03 = new BABYLON.Texture("./assets/Car03_Wheel_Albedo07b.png", scene, true, false)
+    wheelAlbedo.push(wheelAlbedo03)
+    var wheelAlbedo04 = new BABYLON.Texture("./assets/Car03_Wheel_Albedo10.png", scene, true, false)
+    wheelAlbedo.push(wheelAlbedo04)
+    //load metals
+    var wheelMetal01 = new BABYLON.Texture("./assets/Car03_Wheel_Metallic01-03 SWAPPED.png", scene, true, false)
+    wheelMetal.push(wheelMetal01)
+    var wheelMetal03= new BABYLON.Texture("./assets/Car03_Wheel_Metallic05-08 SWAPPED.png", scene, true, false)
+    wheelMetal.push(wheelMetal03)
+
+
 
 }
 function scaleText(text, uValue, vValue, strength){

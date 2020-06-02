@@ -79,6 +79,39 @@ jQuery(document).ready(function ($) {
     $(this).toggleClass('selectedEnv');
   });
 
+    //Wheels
+    $('.wheelOption').on('click', function () {
+      console.log(this.id);
+      var wheelSelec = this.id
+      switch(wheelSelec){
+        case "wheelOne":
+          wheelMat.albedoTexture = wheelAlbedo[0]
+          wheelMat.metallicTexture = wheelMetal[0]
+          //alert("wheel 1")
+          break;
+        case "wheelTwo":
+          wheelMat.albedoTexture = wheelMat.ambientTexture
+          wheelMat.metallicTexture = wheelMetal[1]
+          //alert("wheel 2")
+          break;
+        case "wheelThree":
+          wheelMat.albedoTexture = wheelAlbedo[2]
+          wheelMat.metallicTexture = wheelMetal[1]
+          //alert("wheel 3")
+          break;
+        case "wheelFour":
+          wheelMat.albedoTexture = wheelAlbedo[3]
+          wheelMat.metallicTexture = wheelMetal[1]
+          //alert("wheel 4")
+          break;
+      }
+  
+      /* Remove all classes selectedColour from all child elements*/
+      $('#wheelPicker *').removeClass('selectedWheel');
+      /* This switches on the selectedColour class for that div. */
+      $(this).toggleClass('selectedWheel');
+    });
+
 
   //LIGHTSWITCHER
   $('.lightOption').on('click', function () {

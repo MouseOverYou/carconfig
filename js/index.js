@@ -15,7 +15,8 @@ var createScene = function () {
 
     var assetsManager = new BABYLON.AssetsManager(scene)
     LoadAssets(scene, assetsManager)
-    camera = new BABYLON.ArcRotateCamera("Camera", 65 * (Math.PI / 180), 80 * (Math.PI / 180), 5, new BABYLON.Vector3(0, 0.5, 0), scene);
+    //camera = new BABYLON.ArcRotateCamera("Camera", 65 * (Math.PI / 180), 80 * (Math.PI / 180), 5, new BABYLON.Vector3(0, 0.5, 0), scene);
+    camera = new BABYLON.ArcRotateCamera("Camera", 45 * (Math.PI / 180), 90 * (Math.PI / 180), 4, new BABYLON.Vector3(0, 0.5, 0), scene);
     camera.minZ = 1
     camera.panningDistanceLimit = 0;
     camera.pinchToPanMaxDistance = 0;
