@@ -1,4 +1,4 @@
-let woodMat, LeuchteMat, wheelMat
+let woodMat, LeuchteMat, wheelMatIn, wheelMatOut
 let videoMats = []
 let wheelAlbedo = []
 var wheelMetal = []
@@ -45,16 +45,23 @@ function ChangeMaterialProperties() {
             mat.roughness = 0;
             mat.metallic = 1
         }
-        else if(mat.name == "Car03_Wheel_Mat01"){
-            wheelMat = mat
-            var metalText010203 = new BABYLON.Texture("./assets/Car03_Wheel_Metallic01-03 SWAPPED.png", scene, true, false)
+        else if(mat.name == "Car03_Wheel_Mat00"){
+            wheelMatOut = mat
             mat.metallicTexture = metalText010203
             mat.metallic = 1
             mat.roughness = 0.15
             mat.useMetallnessFromMetallicTextureBlue = true
             mat.useRoughnessFromMetallicTextureAlpha = true
-            //mat.useAmbientOcclusionFromMetallicTextureRed = true
-            //mat.ambientTexture = ""
+            mat.metallicF0Factor = 1
+
+        }
+        else if(mat.name == "Car03_Wheel_Mat01"){
+            wheelMatIn = mat
+            mat.metallicTexture = metalText010203
+            mat.metallic = 1
+            mat.roughness = 0.15
+            mat.useMetallnessFromMetallicTextureBlue = true
+            mat.useRoughnessFromMetallicTextureAlpha = true
             mat.metallicF0Factor = 1
 
         }

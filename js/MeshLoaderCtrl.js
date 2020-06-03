@@ -1,7 +1,9 @@
 var Car_P, Roof_P
 var hdrTexture, hdrTextureCity, hdrTextureStudio, hdrSkyboxMaterial, hdrSkybox, CanyonEnvTask, CityEnvTask, StudioEnvTask
 var MesseCollidersLoaderTask, BottleLoaderTask
-
+var wheelHolder_00 = []
+var wheelHolder_01 = []
+var metalText010203
 function LoadAssets(scene, assetsManager) {
 
 
@@ -73,6 +75,25 @@ function LoadAssets(scene, assetsManager) {
         Car_P.position.x = 0
         Car_P.position.y = 0
         Car_P.scaling = new BABYLON.Vector3(1, 1, 1)
+        //task.loadedMeshes[0]._children[3]._children[4].rotationQuaternion = null
+
+        //console.log(task.loadedMeshes[0]._children[3]._children)
+        //get wheel set 0
+        for(var wheelSet of task.loadedMeshes[0]._children[3]._children){
+            
+            if(wheelSet.name.startsWith("0_Car03_Wheel")){
+                wheelSet.rotationQuaternion = null;
+                wheelHolder_00.push(wheelSet)
+            }
+            else if(wheelSet.name.startsWith("1_Car03_Wheel")){
+                wheelSet.rotationQuaternion = null;
+                //wheelSet.setEnabled(false)
+                wheelHolder_01.push(wheelSet)
+            }
+            
+        }
+        console.log(wheelHolder_00)
+        metalText010203 = new BABYLON.Texture("./assets/Car03_Wheel_Metallic01-03 SWAPPED.png", scene, true, false)
 
     }
 
@@ -99,9 +120,6 @@ function LoadAssets(scene, assetsManager) {
         console.log(message, exception);
     }
 
-
-
-
     //FINISH
 
     var pbr
@@ -112,6 +130,7 @@ function LoadAssets(scene, assetsManager) {
         AddGlow() 
         EditMeshes();
         CreateLighting()
+        BufferWheelAnim()
         //AddShadows();
         //PostEffects(scene)
         //AddSSAO()

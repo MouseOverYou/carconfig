@@ -81,30 +81,40 @@ jQuery(document).ready(function ($) {
 
     //Wheels
     $('.wheelOption').on('click', function () {
+      //set out mat:
+      wheelMatOut.albedoTexture = wheelMatIn.albedoTexture
+      wheelMatOut.metallicTexture = wheelMatIn.albedoTexture
+
+      wheelAnimOut.restart()
+
       console.log(this.id);
       var wheelSelec = this.id
-      switch(wheelSelec){
-        case "wheelOne":
-          wheelMat.albedoTexture = wheelAlbedo[0]
-          wheelMat.metallicTexture = wheelMetal[0]
-          //alert("wheel 1")
-          break;
-        case "wheelTwo":
-          wheelMat.albedoTexture = wheelMat.ambientTexture
-          wheelMat.metallicTexture = wheelMetal[1]
-          //alert("wheel 2")
-          break;
-        case "wheelThree":
-          wheelMat.albedoTexture = wheelAlbedo[2]
-          wheelMat.metallicTexture = wheelMetal[1]
-          //alert("wheel 3")
-          break;
-        case "wheelFour":
-          wheelMat.albedoTexture = wheelAlbedo[3]
-          wheelMat.metallicTexture = wheelMetal[1]
-          //alert("wheel 4")
-          break;
-      }
+      window.setTimeout(()=>{
+        switch(wheelSelec){
+          case "wheelOne":
+            wheelMatIn.albedoTexture = wheelAlbedo[0]
+            wheelMatIn.metallicTexture = wheelMetal[0]
+            //alert("wheel 1")
+            break;
+          case "wheelTwo":
+            wheelMatIn.albedoTexture = wheelMatIn.ambientTexture
+            wheelMatIn.metallicTexture = wheelMetal[1]
+            //alert("wheel 2")
+            break;
+          case "wheelThree":
+            wheelMatIn.albedoTexture = wheelAlbedo[2]
+            wheelMatIn.metallicTexture = wheelMetal[1]
+            //alert("wheel 3")
+            break;
+          case "wheelFour":
+            wheelMatIn.albedoTexture = wheelAlbedo[3]
+            wheelMatIn.metallicTexture = wheelMetal[1]
+            //alert("wheel 4")
+            break;
+        }
+
+      }, (10/25)*1000)
+
   
       /* Remove all classes selectedColour from all child elements*/
       $('#wheelPicker *').removeClass('selectedWheel');
