@@ -137,9 +137,23 @@ jQuery(document).ready(function ($) {
 
     }
 
-
-
   });
 
 });
+
+
+//Menu calls
+function menuClick() {
+  menuIcon.classList.toggle('open')
+  window.setTimeout(()=>{
+    buttons.classList.toggle('open')
+  }, 250)
+}
+var menuIcon = document.querySelector('#hamburger')
+var buttons = document.querySelector('#UIHolder')
+menuIcon.addEventListener('click', menuClick)
+
+window.onload = function(){
+}
+
 
