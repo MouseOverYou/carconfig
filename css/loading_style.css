@@ -21,7 +21,7 @@
 .loading-balls-container {
 	width: 200px;
 	height: 100px;
-	padding-top: 25vh;
+	padding-top: 10vh;
 	margin: 0 auto;
 }
 
@@ -193,7 +193,7 @@
 
 /*Loading Text*/
 .loading-text-container {
-	height: 400px;
+	height: 300px;
 	background: #773d8c00;
 	display: flex;
 	justify-content: center;
@@ -206,7 +206,7 @@
 }
 
 .loading__letter {
-	font-size: 60px;
+	font-size: 50px;
 	font-weight: normal;
 	letter-spacing: 4px;
 	font-family: 'Nunito Sans';
