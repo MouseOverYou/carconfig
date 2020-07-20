@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/loading_style.css">
     <!-- gsap animation-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.2/gsap.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -30,27 +31,55 @@
     <div id="fpsLabel"></div>
     <div id="debugLabel">Keyboard Commands: empty</div>
 
+    <!--LOADING ANIMATION-->
+    <div id="customLoadingScreenDiv">
+        <div class="loading-balls-container">
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+        </div>
+        <div class="loading-text-container">
+            <div class="loading">
+                <div class="loading__letter">L</div>
+                <div class="loading__letter">o</div>
+                <div class="loading__letter">a</div>
+                <div class="loading__letter">d</div>
+                <div class="loading__letter">i</div>
+                <div class="loading__letter">n</div>
+                <div class="loading__letter">g</div>
+                <div class="loading__letter">.</div>
+                <div class="loading__letter">.</div>
+                <div class="loading__letter">.</div>
+            </div>
+        </div>
+
+    </div>
+    <!--FINISH LOADING ANIMATION-->
+
     <img class="logo" src="assets/Recordbay_Logo.png" alt="logo missing">
     <!-- NAV-->
     <div class="menu-container">
         <div class="columnOne">
             <div class="ham boxUI">
-                <div id="ham2" class = ''>
+                <div id="ham2" class=''>
                     <div></div>
                     <div></div>
                     <div></div>
                 </div>
             </div>
-            <div id = "menu0_0" class="menu boxUI">
+            <div id="menu0_0" class="menu boxUI">
                 <i class="material-icons">wb_iridescent</i>
             </div>
-            <div id = "menu1_3" class="menu boxUI">
+            <div id="menu1_3" class="menu boxUI">
                 <i class="material-icons">radio_button_checked</i>
             </div>
-            <div id = "menu2_2" class="menu boxUI">
+            <div id="menu2_2" class="menu boxUI">
                 <i class="material-icons">location_city</i>
             </div>
-            <div id = "menu3_5" class="menu boxUI">
+            <div id="menu3_5" class="menu boxUI">
                 <i class="material-icons">color_lens</i>
             </div>
         </div>
@@ -71,7 +100,7 @@
             <div id='option5' class="option boxUI">
             </div>
         </div>
-        
+
     </div>
 
     <canvas id="renderCanvas" touch-action="none"></canvas> //touch-action="none" for best results from PEP
