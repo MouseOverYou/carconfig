@@ -79,18 +79,18 @@ function LoadAssets(scene, assetsManager) {
 
         //console.log(task.loadedMeshes[0]._children[3]._children)
         //get wheel set 0
-        for(var wheelSet of task.loadedMeshes[0]._children[3]._children){
-            
-            if(wheelSet.name.startsWith("0_Car03_Wheel")){
+        for (var wheelSet of task.loadedMeshes[0]._children[3]._children) {
+
+            if (wheelSet.name.startsWith("0_Car03_Wheel")) {
                 wheelSet.rotationQuaternion = null;
                 wheelHolder_00.push(wheelSet)
             }
-            else if(wheelSet.name.startsWith("1_Car03_Wheel")){
+            else if (wheelSet.name.startsWith("1_Car03_Wheel")) {
                 wheelSet.rotationQuaternion = null;
                 //wheelSet.setEnabled(false)
                 wheelHolder_01.push(wheelSet)
             }
-            
+
         }
         console.log(wheelHolder_00)
         metalText010203 = new BABYLON.Texture("./assets/Car03_Wheel_Metallic01-03 SWAPPED.png", scene, true, false)
@@ -127,7 +127,7 @@ function LoadAssets(scene, assetsManager) {
         LoadTextures()
         ChangeMaterialProperties()
         readyForPosters = true
-        AddGlow() 
+        AddGlow()
         EditMeshes();
         CreateLighting()
         BufferWheelAnim()
@@ -139,8 +139,11 @@ function LoadAssets(scene, assetsManager) {
     //Asset Manager check
     assetsManager.onProgress = function (remainingCount, totalCount, lastFinishedTask) {
         engine.loadingUIText = 'We are loading the scene. ' + remainingCount + ' out of ' + totalCount + ' items still need to be loaded.';
+        document.getElementsByClassName("text-progress")[0].innerHTML = 100 - remainingCount / totalCount * 100 + "%"
+
     };
 
     assetsManager.load();
 }
+
 
